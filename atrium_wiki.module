@@ -1,0 +1,33 @@
+<?php
+
+include_once('atrium_wiki.features.inc');
+
+
+
+/**
+ * Implementation of hook_help().
+ */
+function atrium_wiki_help($path) {
+  // Central help page content.
+  if ($path == 'help#atrium_wiki') {
+    $help = '<h3>'. t('Wiki') .'</h3>';
+    $help .= '<p>'. t("The wiki does something cool....") .'</p>';
+    $help .= '<p>'. t("To use the wiki..do something.") .'</p>';
+    return $help;
+  }
+
+  // Contextual help content.
+  if (context_isset('context', 'wiki_listing')) {
+    if ($path == 'node/add/blah') {
+      $help = '';
+      $help .= '<h3>'. t('Wiki') .'</h3>';
+      $help .= '<p>'. t("Post a wiki.") .'</p>';
+      return $help;
+    }
+    else {
+      $help = '<h3>'. t('Wiki') .'</h3>';
+      $help .= '<p>'. t("The wiki does something.") .'</p>';
+      return $help;
+    }
+  }
+}
