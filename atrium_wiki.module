@@ -2,7 +2,12 @@
 
 include_once('atrium_wiki.features.inc');
 
-
+/**
+ * Implementation of hook_init().
+ */
+function atrium_wiki_init() {
+  drupal_add_css(drupal_get_path('module', 'atrium_wiki') .'/atrium_wiki.css');
+}
 
 /**
  * Implementation of hook_help().
